@@ -6,10 +6,11 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 
 
-@Setter
 @Getter
-@NoArgsConstructor
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Document(indexName = "product")
 public class Product {
 
