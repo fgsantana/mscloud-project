@@ -2,30 +2,32 @@ package com.github.fgsantana.pdtcatalog.controller;
 
 import com.github.fgsantana.pdtcatalog.model.Product;
 import com.github.fgsantana.pdtcatalog.repository.ProductRepository;
+import com.github.fgsantana.pdtcatalog.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
-    @Autowired
-    private ProductRepository repo;
+    final ProductService service;
 
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
-        return repo.save(product);
+        return service.createProduct(product);
     }
 
     @GetMapping
-    public Iterable<Product> findAll() {
+    public Iterable<Product> getProducts() {
 
-        return repo.findAll();
+        return service.getProducts();
     }
 
     @GetMapping("/{id}")
-    public Product findById(@PathVariable("id") String id) throws Exception {
-        return repo.findById(id).orElseThrow(Exception::new);
+    public Product getProduct(@PathVariable("id") String id) {
+       return service.getProductById(id);
     }
 }
