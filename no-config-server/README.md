@@ -1,0 +1,1 @@
+### This version doesn't use config-server, the configuration is on the application.yml.

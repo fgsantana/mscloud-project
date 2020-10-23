@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: pdt-catalog
+
+
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    eureka-server-port: 9000
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
