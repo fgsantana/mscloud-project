@@ -1,8 +1,9 @@
 spring:
   application:
-    name: pdt-catalog
+    name: shppngcart
 
   cloud:
     config:
       uri: http://localhost:8888
+
 
